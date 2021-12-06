@@ -1,0 +1,36 @@
+body{
+    background-color: powderblue;
+}
+.overSide {
+  float: center;
+  height: 10vh;
+}
+.midtSideHele {
+    display: flex;
+    float: left;
+    flex-direction: row;
+    width: 100vw;
+}
+.sideDiagramerDiv{
+    display: flex;
+    float: center;
+    flex-direction: column;
+    width: 80vw;
+}
+
+.midtSide {
+    display: flex;
+    float: center;
+    flex-direction: row;
+    width: 80vw;
+}
+
+.tester1{
+
+    width: 49vw;
+}
+
+.tester2{
+    
+    width: 49vw;
+}
