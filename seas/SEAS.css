@@ -26,12 +26,18 @@ body{
 }
 
 .StromPris{
-
     width: 49vw;
-    border: 1vw;
+    
 }
 
 .tester2{
     
     width: 49vw;
+}
+
+.mwe{
+    border: solid blue 10px;
+}
+.mwetwo{
+    border: solid blue 10px;
 }
