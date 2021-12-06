@@ -11,8 +11,7 @@
     money: <span id="goney"></span>
 
 
- <div id="overSide" >
-        <button onclick="START()">Start</button>
+ <div id="overSide">
         <input type='checkbox' id='CheckPP' class='red' name='frank' value='1' onclick="checkPP()">
         <label for='Blue' class='red'></label>
         <input type='checkbox' id='CheckVL' class='red' name='noe' value='2' onclick="checkVL()">
@@ -148,12 +147,15 @@
 
     if(CheckPP==true){
      document.getElementById("StromPris").style.display="block";
+     document.getElementById("StromPris").style.border="solid black 10px";
     } 
     if(Check00==true){
      document.getElementById("trede").style.display="block";
+     document.getElementById("trede").style.border="solid black 10px";
     } 
     if(CheckVL==true){
      document.getElementById("Money").style.display="block";
+     document.getElementById("Money").style.border="solid black 10px";
     } 
 
     if(CheckPP==true){
