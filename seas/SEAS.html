@@ -50,6 +50,7 @@
     </div>
 
     <div id="Turbin"></div>
+    <div id="tutu"></div>
  </div>
  </div>
  <div>
@@ -57,6 +58,7 @@
  </div>
 <script>
     sideBrede=20;
+    let liste_med_tubiner= [];
     Update()
     START()
     function START(){
@@ -252,6 +254,29 @@
      var F = mweElement.innerText * 6;
      document.getElementById('mwe').style.height = F + "px";
      document.getElementById('mwetwo').style.height = 300 - F + "px";
+      if(liste_med_tubiner.length > 0){
+        if(value.waterLevel > 48){
+          for(turbin of liste_med_tubiner){
+            fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=1`, {
+              method: 'PUT',
+              headers: {
+              "GroupId": "Vannvittig power",
+              "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg==",
+              }})
+          }
+        }
+        if(value.waterLevel < 42){
+          for(turbin of liste_med_tubiner){
+            fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=0`, {
+              method: 'PUT',
+              headers: {
+              "GroupId": "Vannvittig power",
+              "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg==",
+              }})
+          }
+        }
+      }
+
 
 
     });
@@ -280,12 +305,15 @@
         let htmlkode = "<ol>"
         for(let turbin of value) {
             htmlkode += `<li> ${turbin.id} ${turbin.capacityUsage}</li>`;
+            liste_med_tubiner.push(turbin)
         }
         htmlkode += "</ol>"
         TurbinElement.innerHTML = htmlkode;
 
     });
+
     }
+
 </script>
  
 </body></html>
