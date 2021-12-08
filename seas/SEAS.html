@@ -4,11 +4,18 @@
 <script src="https://cdn.plot.ly/plotly-2.6.3.min.js">
 </script>
 <link rel="stylesheet" href="SEAS.css">
+<link rel="icon" href="logo.png" type="image/icon type">
 </head>
 <body>
+
+  <div class="topnav">
+    <a class="active">Innafjord Vannkraftverk</a>
+  </div>
+
+
     Strømpris: <span id="eksempelPlassForStrompris"></span>
     WaterInflux: <span id="waterInflux"></span>
-    money: <span id="goney"></span>
+    Penger tjent: <span id="goney"></span>
 
 
  <div id="overSide" >
@@ -19,10 +26,11 @@
         <label for='Blue' class='red'></label>
         <input type='checkbox' id='Check00' class='red' name='noe' value='3' onclick="check00()">
         <label for='Blue' class='red'></label>
-    
+
 </div>
 
- <br> 
+
+ <br>
  <div id="midtSideHele" style="display: flex; float: center; flex-direction: row;">
   <div id="midtSideVenstere" style="width:20vw; height:100vh;">
 
@@ -36,7 +44,7 @@
        <div id="trede" style='width:100vw;height:400px;'></div>
     </div>
 
-    <div id="mwes" style="width:100vw;height:300px;">
+    <div id="mwes" style="width:80vw;height:300px;">
       <div id='mwetwo' style='width:33vw;height:300px; background-color: green;'></div>
       <div id='mwe' style='width:33vw;height:300px; background-color: aqua;'></div>
     </div>
@@ -45,9 +53,7 @@
  </div>
  </div>
  <div>
-   <p id="tester45">p</p> 
-   <p id="tester3">p</p> 
-   <p id="mwe">p</p> 
+
  </div>
 <script>
     sideBrede=20;
@@ -59,7 +65,7 @@
         CheckVL=false;
         Check00=false;
 
-        
+
         document.getElementById("Money").style.display="none";
 
         document.getElementById("tester1").style.display="none";
@@ -104,19 +110,19 @@
 
     if(CheckPP==false){
      document.getElementById("tester1").style.display="none";
-    } 
+    }
     if(CheckVL==false){
      document.getElementById("Money").style.display="none";
-    } 
+    }
     if(Check00==false){
      document.getElementById("trede").style.display="none";
-    } 
+    }
 
     if(CheckPP==true && CheckVL==false && Check00==false){
      document.getElementById("tester1").style.width="80vw";
      document.getElementById("Money").style.width="0vw";
      document.getElementById("trede").style.width="0vw";
-    }    
+    }
     if(CheckPP==true && CheckVL==true && Check00==false){
      document.getElementById("tester1").style.width="40vw";
      document.getElementById("Money").style.width="40vw";
@@ -126,17 +132,17 @@
      document.getElementById("tester1").style.width="26vw";
      document.getElementById("Money").style.width="26vw";
      document.getElementById("trede").style.width="26vw";
-    }  
+    }
     if(CheckPP==false && CheckVL==true && Check00==false){
      document.getElementById("tester1").style.width="0vw";
      document.getElementById("Money").style.width="80vw";
      document.getElementById("trede").style.width="0vw";
-    }  
+    }
     if(CheckPP==false && CheckVL==true && Check00==true){
      document.getElementById("tester1").style.width="0vw";
      document.getElementById("Money").style.width="40vw";
      document.getElementById("trede").style.width="40vw";
-    }  
+    }
     if(CheckPP==false && CheckVL==false && Check00==true){
      document.getElementById("tester1").style.width="0vw";
      document.getElementById("Money").style.width="0vw";
@@ -146,17 +152,17 @@
      document.getElementById("tester1").style.width="40vw";
      document.getElementById("Money").style.width="0vw";
      document.getElementById("trede").style.width="40vw";
-    } 
+    }
 
     if(CheckPP==true){
      document.getElementById("tester1").style.display="block";
-    } 
+    }
     if(Check00==true){
      document.getElementById("trede").style.display="block";
-    } 
+    }
     if(CheckVL==true){
      document.getElementById("Money").style.display="block";
-    } 
+    }
 
     if(CheckPP==true){
     const eksempelPlassForStromprisElement = document.getElementById("eksempelPlassForStrompris");
@@ -181,7 +187,7 @@
 	 margin: { t: 0 } } );
     });
     }
-    
+
 
     const mweElement = document.getElementById("mwe");
     fetch("https://innafjord.azurewebsites.net/api/GroupState", {headers: {
@@ -190,12 +196,12 @@
 
     }}).then(response =>response.json()).then(value => {
      mweElement.innerText =  value.waterLevel;
-     
+
      var F = mweElement.innerText * 6;
      document.getElementById('mwe').style.height = F + "px";
      document.getElementById('mwetwo').style.height = 300 - F + "px";
 
-        
+
     });
 
     const MoneyElement = document.getElementById("goney");
@@ -225,7 +231,7 @@
         }
         htmlkode += "</ol>"
         TurbinElement.innerHTML = htmlkode;
-    
+
     });
 
 
@@ -233,8 +239,8 @@
     }
 </script>
 
- 
+
 <style>
 </style>
- 
+
 </body></html>
