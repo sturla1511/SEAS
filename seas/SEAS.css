@@ -26,9 +26,9 @@ body{
     width: 80vw;
 }
 
-.tester1{
-
+.StromPris{
     width: 49vw;
+    
 }
 
 .tester2{
@@ -36,6 +36,7 @@ body{
     width: 49vw;
 }
 
+<<<<<<< HEAD
 .topnav {
 
   overflow: hidden;
@@ -57,3 +58,11 @@ body{
   background-color: #black;
   color: white;
 }
+=======
+.mwe{
+    border: solid blue 10px;
+}
+.mwetwo{
+    border: solid blue 10px;
+}
+>>>>>>> c582f24b0a9cd5993d620d253677fe6e46af7ac7

@@ -18,8 +18,7 @@
     Penger tjent: <span id="goney"></span>
 
 
- <div id="overSide" >
-        <button onclick="START()">Start</button>
+ <div id="overSide">
         <input type='checkbox' id='CheckPP' class='red' name='frank' value='1' onclick="checkPP()">
         <label for='Blue' class='red'></label>
         <input type='checkbox' id='CheckVL' class='red' name='noe' value='2' onclick="checkVL()">
@@ -39,9 +38,9 @@
   <div id="sideDiagramerDiv" style="width: 80vw;">
 
     <div id="midtSide" style="display: flex; float: center; flex-direction: row; width: 80vw; height:500px;">
-       <div id="tester1" style="width:100vw;height:400px;"></div>
-       <div id="Money" style="width:100vw;height:400px;"></div>
-       <div id="trede" style='width:100vw;height:400px;'></div>
+       <div id="StromPris" style="width:100vw;height:400px; border: solid black 10px;"></div>
+       <div id="Money" style="width:100vw;height:400px; border: solid black 10px;"></div>
+       <div id="trede" style='width:100vw;height:400px; border: solid black 10px;'></div>
     </div>
 
     <div id="mwes" style="width:80vw;height:300px;">
@@ -68,17 +67,19 @@
 
         document.getElementById("Money").style.display="none";
 
-        document.getElementById("tester1").style.display="none";
+        document.getElementById("StromPris").style.display="none";
+
+        document.getElementById("trede").style.display="none";
     }
 
     function checkPP(){
         if(CheckPP==true){
             CheckPP=false;
-            document.getElementById("tester1").innerHTML="";
-            document.getElementById("tester1").style.display="none";
+            document.getElementById("StromPris").innerHTML="";
+            document.getElementById("StromPris").style.display="none";
         }else if(CheckPP==false){
             CheckPP=true;
-            document.getElementById("tester1").style.display="block";
+            document.getElementById("StromPris").style.display="block";
         }
         Update();
     }
@@ -109,8 +110,13 @@
 
 
     if(CheckPP==false){
+<<<<<<< HEAD
      document.getElementById("tester1").style.display="none";
     }
+=======
+     document.getElementById("StromPris").style.display="none";
+    } 
+>>>>>>> c582f24b0a9cd5993d620d253677fe6e46af7ac7
     if(CheckVL==false){
      document.getElementById("Money").style.display="none";
     }
@@ -119,42 +125,43 @@
     }
 
     if(CheckPP==true && CheckVL==false && Check00==false){
-     document.getElementById("tester1").style.width="80vw";
+     document.getElementById("StromPris").style.width="80vw";
      document.getElementById("Money").style.width="0vw";
      document.getElementById("trede").style.width="0vw";
     }
     if(CheckPP==true && CheckVL==true && Check00==false){
-     document.getElementById("tester1").style.width="40vw";
+     document.getElementById("StromPris").style.width="40vw";
      document.getElementById("Money").style.width="40vw";
      document.getElementById("trede").style.width="0vw";
     }
     if(CheckPP==true && CheckVL==true && Check00==true){
-     document.getElementById("tester1").style.width="26vw";
+     document.getElementById("StromPris").style.width="26vw";
      document.getElementById("Money").style.width="26vw";
      document.getElementById("trede").style.width="26vw";
     }
     if(CheckPP==false && CheckVL==true && Check00==false){
-     document.getElementById("tester1").style.width="0vw";
+     document.getElementById("StromPris").style.width="0vw";
      document.getElementById("Money").style.width="80vw";
      document.getElementById("trede").style.width="0vw";
     }
     if(CheckPP==false && CheckVL==true && Check00==true){
-     document.getElementById("tester1").style.width="0vw";
+     document.getElementById("StromPris").style.width="0vw";
      document.getElementById("Money").style.width="40vw";
      document.getElementById("trede").style.width="40vw";
     }
     if(CheckPP==false && CheckVL==false && Check00==true){
-     document.getElementById("tester1").style.width="0vw";
+     document.getElementById("StromPris").style.width="0vw";
      document.getElementById("Money").style.width="0vw";
      document.getElementById("trede").style.width="80vw";
     }
     if(CheckPP==true && CheckVL==false && Check00==true){
-     document.getElementById("tester1").style.width="40vw";
+     document.getElementById("StromPris").style.width="40vw";
      document.getElementById("Money").style.width="0vw";
      document.getElementById("trede").style.width="40vw";
     }
 
     if(CheckPP==true){
+<<<<<<< HEAD
      document.getElementById("tester1").style.display="block";
     }
     if(Check00==true){
@@ -164,17 +171,76 @@
      document.getElementById("Money").style.display="block";
     }
 
+=======
+     document.getElementById("StromPris").style.display="block";
+     document.getElementById("StromPris").style.border="solid black 10px";
+    } 
+    if(Check00==true){
+     document.getElementById("trede").style.display="block";
+     document.getElementById("trede").style.border="solid black 10px";
+    } 
+    if(CheckVL==true){
+     document.getElementById("Money").style.display="block";
+     document.getElementById("Money").style.border="solid black 10px";
+    } 
+    
+>>>>>>> c582f24b0a9cd5993d620d253677fe6e46af7ac7
     if(CheckPP==true){
+     var start_tid = Date.now();
+      var tidspunkt = [];
+      var kraftpriser = [];
+
+      var vannpriser = [];
+      function leggTilKraftprisTilPlot() {
+        const eksempelPlassForStromprisElement = document.getElementById(
+          "eksempelPlassForStrompris"
+        );
+        fetch(" https://innafjord.azurewebsites.net/api/PowerPrice")
+          .then((response) => response.json())
+          .then((value) => {
+            eksempelPlassForStromprisElement.innerText = value;
+            tidspunkt.push((Date.now() - start_tid) / 50000);
+            kraftpriser.push(value);
+          });
+
+
+
+        trace3 = {
+          type: "scatter",
+          x: tidspunkt,
+          y: kraftpriser,
+          mode: "lines",
+          name: "StrømPris",
+          line: {
+            color: "rgb(26, 38, 97)",
+            width: 2,
+          },
+        };
+
+
+        var layout = {
+          height: 400,
+        };
+
+        var data = [trace3];
+
+        Plotly.newPlot("StromPris", data, layout);
+      }
+      setInterval(leggTilKraftprisTilPlot, 1000);
+    }
+    
+
+    /*if(CheckPP==true){
     const eksempelPlassForStromprisElement = document.getElementById("eksempelPlassForStrompris");
     fetch(" https://innafjord.azurewebsites.net/api/PowerPrice").then(response =>response.json()).then(value => {
         eksempelPlassForStromprisElement.innerText = value;
-     Pester = document.getElementById('tester1');
+     Pester = document.getElementById('StromPris');
 	 Plotly.newPlot( Pester, [{
 	 x: ["nå"],
 	 y: [eksempelPlassForStromprisElement.innerText] }], {
 	 margin: { t: 0 } } );
     });
-    }
+    }*/
 
     if(Check00==true){
     const eksempelPlassForWaterInfluxElement = document.getElementById("waterInflux");
