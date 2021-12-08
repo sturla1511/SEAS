@@ -1,6 +1,7 @@
 body{
     background-color: powderblue;
     font-family: Helvetica;
+    
 }
 .overSide {
   float: center;
@@ -28,7 +29,7 @@ body{
 
 .StromPris{
     width: 49vw;
-    
+
 }
 
 .tester2{
