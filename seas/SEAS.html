@@ -60,6 +60,8 @@
         document.getElementById("Money").style.display="none";
 
         document.getElementById("StromPris").style.display="none";
+
+        document.getElementById("trede").style.display="none";
     }
 
     function checkPP(){
@@ -157,8 +159,53 @@
      document.getElementById("Money").style.display="block";
      document.getElementById("Money").style.border="solid black 10px";
     } 
-
+    
     if(CheckPP==true){
+     var start_tid = Date.now();
+      var tidspunkt = [];
+      var kraftpriser = [];
+
+      var vannpriser = [];
+      function leggTilKraftprisTilPlot() {
+        const eksempelPlassForStromprisElement = document.getElementById(
+          "eksempelPlassForStrompris"
+        );
+        fetch(" https://innafjord.azurewebsites.net/api/PowerPrice")
+          .then((response) => response.json())
+          .then((value) => {
+            eksempelPlassForStromprisElement.innerText = value;
+            tidspunkt.push((Date.now() - start_tid) / 50000);
+            kraftpriser.push(value);
+          });
+
+
+
+        trace3 = {
+          type: "scatter",
+          x: tidspunkt,
+          y: kraftpriser,
+          mode: "lines",
+          name: "StrømPris",
+          line: {
+            color: "rgb(26, 38, 97)",
+            width: 2,
+          },
+        };
+
+
+        var layout = {
+          height: 400,
+        };
+
+        var data = [trace3];
+
+        Plotly.newPlot("StromPris", data, layout);
+      }
+      setInterval(leggTilKraftprisTilPlot, 1000);
+    }
+    
+
+    /*if(CheckPP==true){
     const eksempelPlassForStromprisElement = document.getElementById("eksempelPlassForStrompris");
     fetch(" https://innafjord.azurewebsites.net/api/PowerPrice").then(response =>response.json()).then(value => {
         eksempelPlassForStromprisElement.innerText = value;
@@ -168,7 +215,7 @@
 	 y: [eksempelPlassForStromprisElement.innerText] }], {
 	 margin: { t: 0 } } );
     });
-    }
+    }*/
 
     if(Check00==true){
     const eksempelPlassForWaterInfluxElement = document.getElementById("waterInflux");
