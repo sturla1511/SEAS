@@ -80,6 +80,9 @@
         document.getElementById("StromPris").style.display="none";
 
         document.getElementById("trede").style.display="none";
+
+        document.getElementById("midtSide").style.height="0px";
+        
     }
 
     function checkPP(){
@@ -90,6 +93,7 @@
         }else if(CheckPP==false){
             CheckPP=true;
             document.getElementById("StromPris").style.display="block";
+            document.getElementById("midtSide").style.height="500px";
         }
         Update();
     }
@@ -101,6 +105,7 @@
         }else if(CheckVL==false){
             CheckVL=true;
             document.getElementById("Money").style.display="block";
+            document.getElementById("midtSide").style.height="500px";
         }
         Update();
     }
@@ -112,6 +117,7 @@
         }else if(Check00==false){
             Check00=true;
             document.getElementById("trede").style.display="block";
+            document.getElementById("midtSide").style.height="500px";
         }
         Update();
     }
@@ -124,7 +130,7 @@
         Auto=true;
       }
     }
-    
+
     function Update(){
 
 
@@ -173,6 +179,12 @@
      document.getElementById("StromPris").style.width="40vw";
      document.getElementById("Money").style.width="0vw";
      document.getElementById("trede").style.width="40vw";
+    }
+    if(CheckPP==false && CheckVL==false && Check00==false){
+     document.getElementById("StromPris").style.width="0vw";
+     document.getElementById("Money").style.width="0vw";
+     document.getElementById("trede").style.width="0vw";
+     document.getElementById("midtSide").style.height="0px";
     }
 
     if(CheckPP==true){
