@@ -24,16 +24,16 @@
     <a class="active">Innafjord Vannkraftverk</a>
   </div>
 
-    Strømpris: <span id="eksempelPlassForStrompris"></span>
-    WaterInflux: <span id="waterInflux"></span>
-    Penger tjent: <span id="goney"></span>
+    <span id="eksempelPlassForStrompris" style="display: none;"></span>
+    <span id="waterInflux" style="display: none;"></span>
+    <span id="goney" style="display: none;"></span>
 
 
  <div id="overSide">
    <div class="inputSideDiv"></div>
     
    <div class="inputSideDiv"></div>
-</div>*/
+</div>
 
 
  <br>
@@ -116,6 +116,15 @@
         Update();
     }
 
+    function auto(){
+      if(Auto==true){
+        Auto=false;
+      }
+      else if(Auto==false){
+        Auto=true;
+      }
+    }
+    
     function Update(){
 
 
@@ -249,14 +258,6 @@
     });
     }
 
-    function auto(){
-      if(Auto==true){
-        Auto=false;
-      }
-      else if(Auto==false){
-        Auto=true;
-      }
-    }
 
     const mweElement = document.getElementById("mwe");
     const hentData = () => {
