@@ -57,6 +57,7 @@
 
  </div>
 <script>
+    Auto=false
     sideBrede=20;
     let liste_med_tubiner= [];
     Update()
@@ -242,8 +243,9 @@
     });
     }
 
-
     const mweElement = document.getElementById("mwe");
+    const hentData = () => {
+
     fetch("https://innafjord.azurewebsites.net/api/GroupState", {headers: {
     "GroupId": "Vannvittig power",
     "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg=="
@@ -255,7 +257,7 @@
      document.getElementById('mwe').style.height = F + "px";
      document.getElementById('mwetwo').style.height = 300 - F + "px";
       if(liste_med_tubiner.length > 0){
-        if(value.waterLevel > 48){
+        if(value.waterLevel > 46){
           for(turbin of liste_med_tubiner){
             fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=1`, {
               method: 'PUT',
@@ -280,6 +282,9 @@
 
 
     });
+    setTimeout(hentData, 1000)
+    }
+    hentData();
 
     const MoneyElement = document.getElementById("goney");
     fetch("https://innafjord.azurewebsites.net/api/GroupState", {headers: {
