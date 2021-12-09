@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="https://cdn.plot.ly/plotly-2.6.3.min.js">
+</script>
+<link rel="stylesheet" href="SEAS.css">
+<link rel="icon" href="logo.png" type="image/icon type">
+</head>
+<body>
+
+  <div class="topnav">
+    <a class="active">Innafjord Vannkraftverk</a>
+  </div>
+
+
+    Strømpris: <span id="eksempelPlassForStrompris"></span>
+    WaterInflux: <span id="waterInflux"></span>
+    money: <span id="goney"></span>
+    Penger tjent: <span id="goney"></span>
+
+
+ <div id="overSide">
+        <input type='checkbox' id='CheckPP' class='red' name='frank' value='1' onclick="checkPP()">
+        <label for='Blue' class='red'></label>
+        <input type='checkbox' id='CheckVL' class='red' name='noe' value='2' onclick="checkVL()">
+        <label for='Blue' class='red'></label>
+        <input type='checkbox' id='Check00' class='red' name='noe' value='3' onclick="check00()">
+        <label for='Blue' class='red'></label>
+    
+
+</div>
+
+ <br> 
+
+ <br>
+ <div id="midtSideHele" style="display: flex; float: center; flex-direction: row;">
+  <div id="midtSideVenstere" style="width:20vw; height:100vh;">
+
+  </div>
+
+  <div id="sideDiagramerDiv" style="width: 80vw;">
+
+    <div id="midtSide" style="display: flex; float: center; flex-direction: row; width: 80vw; height:500px;">
+       <div id="StromPris" style="width:100vw;height:400px; border: solid black 10px;"></div>
+       <div id="Money" style="width:100vw;height:400px; border: solid black 10px;"></div>
+       <div id="trede" style='width:100vw;height:400px; border: solid black 10px;'></div>
+    </div>
+
+    <div id="mwes" style="width:80vw;height:300px;">
+      <div id='mwetwo' style='width:33vw;height:300px; background-color: green;'></div>
+      <div id='mwe' style='width:33vw;height:300px; background-color: aqua;'></div>
+    </div>
+
+    <div id="Turbin"></div>
+ </div>
+ </div>
+ <div>
+
+ </div>
+<script>
+    sideBrede=20;
+    Update()
+    START()
+    function START(){
+        Update();
+        CheckPP=false;
+        CheckVL=false;
+        Check00=false;
+
+        
+
+        document.getElementById("Money").style.display="none";
+
+        document.getElementById("StromPris").style.display="none";
+
+        document.getElementById("trede").style.display="none";
+    }
+
+    function checkPP(){
+        if(CheckPP==true){
+            CheckPP=false;
+            document.getElementById("StromPris").innerHTML="";
+            document.getElementById("StromPris").style.display="none";
+        }else if(CheckPP==false){
+            CheckPP=true;
+            document.getElementById("StromPris").style.display="block";
+        }
+        Update();
+    }
+
+    function checkVL(){
+        if(CheckVL==true){
+            CheckVL=false;
+            document.getElementById("Money").style.display="none";
+        }else if(CheckVL==false){
+            CheckVL=true;
+            document.getElementById("Money").style.display="block";
+        }
+        Update();
+    }
+
+    function check00(){
+        if(Check00==true){
+            Check00=false;
+            document.getElementById("trede").style.display="none";
+        }else if(Check00==false){
+            Check00=true;
+            document.getElementById("trede").style.display="block";
+        }
+        Update();
+    }
+
+    function Update(){
+
+
+    if(CheckPP==false){
+
+     document.getElementById("StromPris").style.display="none";
+    } 
+    if(CheckVL==false){
+     document.getElementById("Money").style.display="none";
+    } 
+    }
+    if(Check00==false){
+     document.getElementById("trede").style.display="none";
+    } 
+    }
+
+    if(CheckPP==true && CheckVL==false && Check00==false){
+     document.getElementById("StromPris").style.width="80vw";
+     document.getElementById("Money").style.width="0vw";
+     document.getElementById("trede").style.width="0vw";
+    }    
+    }
+    if(CheckPP==true && CheckVL==true && Check00==false){
+     document.getElementById("StromPris").style.width="40vw";
+     document.getElementById("Money").style.width="40vw";
+     document.getElementById("trede").style.width="0vw";
+    }
+    if(CheckPP==true && CheckVL==true && Check00==true){
+     document.getElementById("StromPris").style.width="26vw";
+     document.getElementById("Money").style.width="26vw";
+     document.getElementById("trede").style.width="26vw";
+    }  
+    }
+    if(CheckPP==false && CheckVL==true && Check00==false){
+     document.getElementById("StromPris").style.width="0vw";
+     document.getElementById("Money").style.width="80vw";
+     document.getElementById("trede").style.width="0vw";
+    }  
+    }
+    if(CheckPP==false && CheckVL==true && Check00==true){
+     document.getElementById("StromPris").style.width="0vw";
+     document.getElementById("Money").style.width="40vw";
+     document.getElementById("trede").style.width="40vw";
+    }  
+    }
+    if(CheckPP==false && CheckVL==false && Check00==true){
+     document.getElementById("StromPris").style.width="0vw";
+     document.getElementById("Money").style.width="0vw";
+     document.getElementById("trede").style.width="80vw";
+    }
+    if(CheckPP==true && CheckVL==false && Check00==true){
+     document.getElementById("StromPris").style.width="40vw";
+     document.getElementById("Money").style.width="0vw";
+     document.getElementById("trede").style.width="40vw";
+    } 
+    }
+
+    if(CheckPP==true){
+
+     document.getElementById("StromPris").style.display="block";
+     document.getElementById("StromPris").style.border="solid black 10px";
+    } 
+    if(Check00==true){
+     document.getElementById("trede").style.display="block";
+     document.getElementById("trede").style.border="solid black 10px";
+    } 
+    if(CheckVL==true){
+     document.getElementById("Money").style.display="block";
+     document.getElementById("Money").style.border="solid black 10px";
+    } 
+    
+    if(CheckPP==true){
+     var start_tid = Date.now();
+      var tidspunkt = [];
+      var kraftpriser = [];
+
+      var vannpriser = [];
+      function leggTilKraftprisTilPlot() {
+        const eksempelPlassForStromprisElement = document.getElementById(
+          "eksempelPlassForStrompris"
+        );
+        fetch(" https://innafjord.azurewebsites.net/api/PowerPrice")
+          .then((response) => response.json())
+          .then((value) => {
+            eksempelPlassForStromprisElement.innerText = value;
+            tidspunkt.push((Date.now() - start_tid) / 50000);
+            kraftpriser.push(value);
+          });
+
+
+
+        trace3 = {
+          type: "scatter",
+          x: tidspunkt,
+          y: kraftpriser,
+          mode: "lines",
+          name: "StrømPris",
+          line: {
+            color: "rgb(26, 38, 97)",
+            width: 2,
+          },
+        };
+
+
+        var layout = {
+          height: 400,
+        };
+
+        var data = [trace3];
+
+        Plotly.newPlot("StromPris", data, layout);
+      }
+      setInterval(leggTilKraftprisTilPlot, 1000);
+    }
+    
+
+    /*if(CheckPP==true){
+    const eksempelPlassForStromprisElement = document.getElementById("eksempelPlassForStrompris");
+    fetch(" https://innafjord.azurewebsites.net/api/PowerPrice").then(response =>response.json()).then(value => {
+        eksempelPlassForStromprisElement.innerText = value;
+     Pester = document.getElementById('StromPris');
+	 Plotly.newPlot( Pester, [{
+	 x: ["nå"],
+	 y: [eksempelPlassForStromprisElement.innerText] }], {
+	 margin: { t: 0 } } );
+    });
+    }*/
+
+    if(Check00==true){
+    const eksempelPlassForWaterInfluxElement = document.getElementById("waterInflux");
+    fetch(" https://innafjord.azurewebsites.net/api/WaterInflux").then(response =>response.json()).then(value => {
+     eksempelPlassForWaterInfluxElement.innerText = value;
+     TESTER = document.getElementById('trede');
+	 Plotly.newPlot( TESTER, [{
+	 x: ["nå"],
+	 y: [eksempelPlassForWaterInfluxElement.innerText] }], {
+	 margin: { t: 0 } } );
+    });
+    }
+    
+
+
+    const mweElement = document.getElementById("mwe");
+    fetch("https://innafjord.azurewebsites.net/api/GroupState", {headers: {
+    "GroupId": "Vannvittig power",
+    "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg=="
+
+    }}).then(response =>response.json()).then(value => {
+     mweElement.innerText =  value.waterLevel;
+     
+
+     var F = mweElement.innerText * 6;
+     document.getElementById('mwe').style.height = F + "px";
+     document.getElementById('mwetwo').style.height = 300 - F + "px";
+
+        
+
+    });
+
+    const MoneyElement = document.getElementById("goney");
+    fetch("https://innafjord.azurewebsites.net/api/GroupState", {headers: {
+    "GroupId": "Vannvittig power",
+    "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg=="
+
+    }}).then(response =>response.json()).then(value => {
+        MoneyElement.innerText =  value.money;
+
+        TESTER = document.getElementById('Money');
+	    Plotly.newPlot( TESTER, [{
+	    x: ["nå"],
+	    y: [MoneyElement.innerText] }], {
+	    margin: { t: 0 } } );
+    });
+
+    const TurbinElement = document.getElementById("Turbin");
+    fetch("https://innafjord.azurewebsites.net/api/Turbines", { headers: {
+    "GroupId": "Vannvittig power",
+    "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg=="
+
+    }}).then(response =>response.json()).then(value => {
+        let htmlkode = "<ol>"
+        for(let turbin of value) {
+            htmlkode += `<li> ${turbin.id} ${turbin.capacityUsage}</li>`;
+        }
+        htmlkode += "</ol>"
+        TurbinElement.innerHTML = htmlkode;
+    
+
+    });
+    }
+</script>
+ 
+</body></html>
+</body></html>
+
