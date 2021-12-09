@@ -53,7 +53,6 @@ body{
 }
 
 .topnav {
-
   overflow: hidden;
   height: 55px;
   background-color: gray;
@@ -64,13 +63,57 @@ body{
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
+  text-decoration: solid;
   font-size: 17px;
 }
 
 .topnav a.active {
-  background-color: black;
+  background-color: gray;
   color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 2px;
 }
 
 
+
+
+
+
+/* Nav bar
+Posisjoner
+*/
+.navMenu {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 100px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #3ae0fd;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #3ae0fd;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
