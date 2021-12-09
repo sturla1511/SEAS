@@ -8,24 +8,31 @@
 </head>
 <body>
 
+<!-- Test navigation -->
+<body>
+  <nav class="navMenu">
+    <input type='checkbox' id='CheckPP' class='red' name='frank' value='1' onclick="checkPP()">
+    <a href="#">Grapg</a>
+    <input type='checkbox' id='CheckVL' class='red' name='noe' value='2' onclick="checkVL()">
+    <a href="#">Diagram</a>
+    <input type='checkbox' id='Check00' class='red' name='noe' value='3' onclick="check00()">
+  </nav>
+</body>
+
+
   <div class="topnav">
     <a class="active">Innafjord Vannkraftverk</a>
   </div>
 
-
-    Strømpris: <span id="eksempelPlassForStrompris"></span>
-    WaterInflux: <span id="waterInflux"></span>
-    Penger tjent: <span id="goney"></span>
+    <span id="eksempelPlassForStrompris" style="display: none;"></span>
+    <span id="waterInflux" style="display: none;"></span>
+    <span id="goney" style="display: none;"></span>
 
 
  <div id="overSide">
-        <input type='checkbox' id='CheckPP' class='red' name='frank' value='1' onclick="checkPP()">
-        <label for='Blue' class='red'></label>
-        <input type='checkbox' id='CheckVL' class='red' name='noe' value='2' onclick="checkVL()">
-        <label for='Blue' class='red'></label>
-        <input type='checkbox' id='Check00' class='red' name='noe' value='3' onclick="check00()">
-        <label for='Blue' class='red'></label>
-
+   <div class="inputSideDiv"></div>
+    
+   <div class="inputSideDiv"></div>
 </div>
 
 
@@ -42,20 +49,23 @@
        <div id="Money" style="width:100vw;height:400px; border: solid black 10px;"></div>
        <div id="trede" style='width:100vw;height:400px; border: solid black 10px;'></div>
     </div>
-
+    <p>Auto:<input type="checkbox" onclick="auto()"></p>
     <div id="mwes" style="width:80vw;height:300px;">
       <div id='mwetwo' style='width:33vw;height:300px; background-color: green;'></div>
       <div id='mwe' style='width:33vw;height:300px; background-color: aqua;'></div>
     </div>
 
     <div id="Turbin"></div>
+    <div id="tutu"></div>
  </div>
  </div>
  <div>
 
  </div>
 <script>
+    Auto=false;
     sideBrede=20;
+    let liste_med_tubiner= [];
     Update()
     START()
     function START(){
@@ -106,6 +116,15 @@
         Update();
     }
 
+    function auto(){
+      if(Auto==true){
+        Auto=false;
+      }
+      else if(Auto==false){
+        Auto=true;
+      }
+    }
+    
     function Update(){
 
 
@@ -113,7 +132,6 @@
 
      document.getElementById("StromPris").style.display="none";
     } 
->>>>>>> c582f24b0a9cd5993d620d253677fe6e46af7ac7
     if(CheckVL==false){
      document.getElementById("Money").style.display="none";
     }
@@ -171,7 +189,6 @@
      document.getElementById("Money").style.border="solid black 10px";
     } 
     
->>>>>>> c582f24b0a9cd5993d620d253677fe6e46af7ac7
     if(CheckPP==true){
      var start_tid = Date.now();
       var tidspunkt = [];
@@ -243,6 +260,8 @@
 
 
     const mweElement = document.getElementById("mwe");
+    const hentData = () => {
+
     fetch("https://innafjord.azurewebsites.net/api/GroupState", {headers: {
     "GroupId": "Vannvittig power",
     "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg=="
@@ -254,8 +273,39 @@
      document.getElementById('mwe').style.height = F + "px";
      document.getElementById('mwetwo').style.height = 300 - F + "px";
 
+    if(Auto==true){
+      if(liste_med_tubiner.length > 0){
+        if(value.waterLevel > 35){
+          for(turbin of liste_med_tubiner){
+            fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=1`, {
+              method: 'PUT',
+              headers: {
+              "GroupId": "Vannvittig power",
+              "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg==",
+              }})
+          }
+        }
+        if(value.waterLevel < 25){
+          for(turbin of liste_med_tubiner){
+            fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=0`, {
+              method: 'PUT',
+              headers: {
+              "GroupId": "Vannvittig power",
+              "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg==",
+              }})
+          }
+        }
+      }
+    }else if(Auto==false){
+
+    }
+
+
 
     });
+    setTimeout(hentData, 1000)
+    }
+    hentData();
 
     const MoneyElement = document.getElementById("goney");
     fetch("https://innafjord.azurewebsites.net/api/GroupState", {headers: {
@@ -281,12 +331,17 @@
         let htmlkode = "<ol>"
         for(let turbin of value) {
             htmlkode += `<li> ${turbin.id} ${turbin.capacityUsage}</li>`;
+            liste_med_tubiner.push(turbin)
         }
         htmlkode += "</ol>"
         TurbinElement.innerHTML = htmlkode;
 
     });
-    }
-</script>
 
+    }
+
+</script>
+ 
 </body></html>
+
+

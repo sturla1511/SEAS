@@ -1,33 +1,49 @@
+#overSide{
+  width: 100vw;
+  display: flex;
+  float: center;
+  flex-direction: row;
+
+}
+.inputSideDiv{
+  width: 30vw;
+  height: 10vh;
+}
+input.red{
+  width: 40px;
+  height: 40px;
+}
+
 body{
     background-color: powderblue;
     font-family: Helvetica;
 
 }
-.overSide {
+#overSide {
   float: center;
   height: 10vh;
 }
-.midtSideHele {
+#midtSideHele {
     display: flex;
     float: left;
     flex-direction: row;
     width: 100vw;
 }
-.sideDiagramerDiv{
+#sideDiagramerDiv{
     display: flex;
     float: center;
     flex-direction: column;
     width: 80vw;
 }
 
-.midtSide {
+#midtSide {
     display: flex;
     float: center;
     flex-direction: row;
     width: 80vw;
 }
 
-.StromPris{
+#StromPris{
     width: 49vw;
 
 }
@@ -37,7 +53,6 @@ body{
 }
 
 .topnav {
-
   overflow: hidden;
   height: 55px;
   background-color: gray;
@@ -48,19 +63,57 @@ body{
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
+  text-decoration: solid;
   font-size: 17px;
 }
 
-
 .topnav a.active {
-  background-color: black;
+  background-color: gray;
   color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 2px;
 }
 
-.mwe{
-    border: solid blue 10px;
+
+
+
+
+
+/* Nav bar
+Posisjoner
+*/
+.navMenu {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-.mwetwo{
-    border: solid blue 10px;
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 100px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #3ae0fd;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #3ae0fd;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
