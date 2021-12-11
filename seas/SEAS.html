@@ -57,6 +57,7 @@
     <div id="Turbin"></div>
     <div id="tutu"></div>
     <div id="tEST"></div>
+    
  </div>
  </div>
  <div>
@@ -311,7 +312,7 @@
     }else if(Auto==false){
       if(liste_med_tubiner.length > 0){
         for(turbin of liste_med_tubiner){
-          
+          document.getElementById("TurbinerDiv")
           if(turbin.capacityUsage=0){
             fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=1`, {
             method: 'PUT',
