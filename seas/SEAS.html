@@ -57,6 +57,7 @@
     <div id="Turbin"></div>
     <div id="tutu"></div>
     <div id="tEST"></div>
+    <div id="TurbinerDiv"></div>
     
  </div>
  </div>
@@ -130,6 +131,10 @@
       else if(Auto==false){
         Auto=true;
       }
+    }
+    function Turbu(){
+
+      Update();
     }
 
     function Update(){
@@ -309,29 +314,8 @@
           }
         }
       }
-    }else if(Auto==false){
-      if(liste_med_tubiner.length > 0){
-        for(turbin of liste_med_tubiner){
-          document.getElementById("TurbinerDiv")
-          if(turbin.capacityUsage=0){
-            fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=1`, {
-            method: 'PUT',
-            headers: {
-            "GroupId": "Vannvittig power",
-            "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg==",
-            }})
-          }else if(turbin.capacityUsage=1){
-            fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=0`, {
-              method: 'PUT',
-              headers: {
-              "GroupId": "Vannvittig power",
-              "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg==",
-              }})
-          }
-          
-        }
-      }
-    }
+    } 
+    
 
 
 
@@ -363,18 +347,15 @@
     }}).then(response =>response.json()).then(value => {
         let htmlkode = "<ol>"
         for(let turbin of value) {
-            htmlkode += `<li> ${turbin.id} ${turbin.capacityUsage}</li>`;
-            liste_med_tubiner.push(turbin)
+           liste_med_tubiner.push(turbin)
+            htmlkode += "<li> <button class='ikkeNo' id='"+`${turbin.id}`+"'>" + `${turbin.id} ${turbin.capacityUsage}` + "</button></li>";
         }
         htmlkode += "</ol>"
         TurbinElement.innerHTML = htmlkode;
-
     });
-
     }
 
 </script>
  
-</body></html>
-
-
+</body>
+</html>
