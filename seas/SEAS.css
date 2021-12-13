@@ -348,4 +348,14 @@ h1.title{
   position: center;
   margin-left: 30%;
   margin-bottom: 10%;
+  font-size: 0px;
+}
+#mweTekst{
+  font-size: 0px;
+}
+#mwes:hover{
+ font-size: 15px;
+}
+#mwe{
+  font-size: 20px;
 }
