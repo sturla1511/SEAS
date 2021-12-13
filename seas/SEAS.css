@@ -1,3 +1,4 @@
+
 #overSide{
   width: 100vw;
   display: flex;
@@ -6,7 +7,7 @@
 
 }
 .inputSideDiv{
-  width: 30vw;
+  width: 35vw;
   height: 10vh;
 }
 input.red{
@@ -202,6 +203,14 @@ h1.title{
   color: #22a4fb;
 }
 
+.navbar_items a
+{
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 2px;
+  
+}
 
 .navbar .navbar_items ul{
   display: flex;
@@ -211,6 +220,7 @@ h1.title{
 .navbar .navbar_items ul li{
   text-transform: uppercase;
   margin: 0 10px;
+  color: white;
 }
 
 .navbar .navbar_items ul li a{
