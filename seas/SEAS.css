@@ -171,7 +171,7 @@ p{
 h1.title{
   margin-bottom: 30px;
   margin-left: 20%;
-  color: #000000;
+  color: #b3b3b3;
   font-family: 'Arial', cursive;
   text-transform: uppercase;
   font-size: 30px;
@@ -208,7 +208,7 @@ h1.title{
 .logo h2{
   font-family: 'Arial', cursive;
   font-size: 32px;
-  color: #22a4fb;
+  color: #3ae0fd;
 }
 
 .navbar_items a
@@ -257,7 +257,7 @@ h1.title{
 }
 
 .banner_content h1 span{
-  color: #22a4fb;
+  color: #3ae0fd;
 }
 
 
@@ -310,7 +310,7 @@ h1.title{
 
 
   .logo{
-      color: #003852;
+      color: #3ae0fd;
       margin-bottom: 25px;
   }
 
