@@ -12,10 +12,11 @@
 <body>
   <nav class="navMenu">
     <input type='checkbox' id='CheckPP' class='red' name='frank' value='1' onclick="checkPP()">
-    <a href="#">Grapg</a>
+    <a href="#">PowerPrice</a>
     <input type='checkbox' id='CheckVL' class='red' name='noe' value='2' onclick="checkVL()">
-    <a href="#">Diagram</a>
+    <a href="#">Money</a>
     <input type='checkbox' id='Check00' class='red' name='noe' value='3' onclick="check00()">
+    <a href="#">WaterInflux</a>
   </nav>
 </body>
 
@@ -345,13 +346,13 @@
     "GroupKey": "FPkZ6MVsCUSBJUhRR6HMVg=="
 
     }}).then(response =>response.json()).then(value => {
-        let htmlkode = "<ol>"
+        /*let htmlkode = "<ol>"*/
         for(let turbin of value) {
            liste_med_tubiner.push(turbin)
-            htmlkode += "<li> <button class='ikkeNo' id='"+`${turbin.id}`+"'>" + `${turbin.id} ${turbin.capacityUsage}` + "</button></li>";
+            /*htmlkode += "<li> <button class='ikkeNo' id='"+`${turbin.id}`+"'>" + `${turbin.id} ${turbin.capacityUsage}` + "</button></li>";*/
         }
-        htmlkode += "</ol>"
-        TurbinElement.innerHTML = htmlkode;
+        /*htmlkode += "</ol>"*/
+        /*TurbinElement.innerHTML = htmlkode;*/
     });
     }
 
