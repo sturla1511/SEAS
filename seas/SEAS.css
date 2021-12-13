@@ -146,3 +146,183 @@ h4 {
   font-family: 'Times New Roman', Times, serif;
   font-size: x-large;
 }
+
+
+
+
+/* Vann.html*/
+
+p{
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a9a9a9;
+}
+
+h1.title{
+  margin-bottom: 20px;
+  color: #000000;
+  font-family: 'italic', cursive;
+  text-transform: uppercase;
+  font-size: 38px;
+  word-spacing: 25px;
+  letter-spacing: 5px;
+}
+
+.btn a{
+  display: block;
+  width: 180px;
+  height: 35px;
+  border: 2px solid #fb2222;
+  line-height: 35px;
+  margin: 25px auto 0;
+  color: #f80000;
+  text-align: center;
+}
+
+
+.main_container{
+  position: relative;
+}
+
+/* Navigation bar */
+.navbar{
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+}
+
+.logo h2{
+  font-family: 'Allura', cursive;
+  font-size: 32px;
+  color: #22a4fb;
+}
+
+
+.navbar .navbar_items ul{
+  display: flex;
+}
+
+
+.navbar .navbar_items ul li{
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+
+.navbar .navbar_items ul li a{
+  color: #fff;
+}
+
+/* Banner Image */
+.banner_image{
+  background: url("Vann.jpeg") no-repeat top center;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner_content{
+  text-align: center;
+  color: #fff;
+}
+
+.banner_content h1{
+  text-transform: uppercase;
+  line-height: 38px;
+  margin-bottom: 15px;
+}
+
+.banner_content h1 span{
+  color: #226efb;
+}
+
+
+
+/* Which one do you like  
+.form_input{
+  margin-bottom: 15px;
+}
+
+.form_input input[type="text"]{
+  width: 250px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+}
+
+.form_input textarea{
+  width: 250px;
+  padding: 12px 20px;
+  height: 80px;
+  resize: none;
+  border: 1px solid #ccc;
+}
+*/
+
+/* footer */
+.footer{
+  width: 100%;
+  text-align: center;
+  background: #444444;
+  padding: 20px 0;
+}
+
+.footer a{
+  color: #fff;
+}
+
+
+/* REsponsive */
+
+@media (max-width: 720px){
+  .navbar{
+      height: auto;
+      flex-direction: column;
+  }
+
+  .navbar ul{
+      flex-direction: column;
+      text-align: center;
+  }
+
+
+  .logo{
+      color: #03a9f4;
+      margin-bottom: 25px;
+  }
+
+  .navbar ul li{
+      margin-bottom: 5px;
+  }
+
+  .banner_content{
+      margin-top: 35px;
+  }
+}
+
+/* arrow 
+.arrow{
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  background: #fb2274;
+  border-radius: 50%;
+}
+
+.arrow img{
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
+*/
