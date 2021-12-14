@@ -317,7 +317,7 @@
 
     if(Auto==true){
       if(liste_med_tubiner.length > 0){
-        if(value.waterLevel > 35){
+        if(value.waterLevel > 40){
           for(turbin of liste_med_tubiner){
             fetch(`https://innafjord.azurewebsites.net/api/Turbines/${turbin.id}/?capacityUsage=1`, {
               method: 'PUT',
@@ -372,7 +372,7 @@
         /*let htmlkode = "<ol>"*/
         for(let turbin of value) {
            liste_med_tubiner.push(turbin)
-            /*htmlkode += "<li> <button class='ikkeNo' id='"+`${turbin.id}`+"'>" + `${turbin.id} ${turbin.capacityUsage}` + "</button></li>";*/
+            /*htmlkode += "<li> <button id='"+`${turbin.id}`+"'>" + `${turbin.id} ${turbin.capacityUsage}` + "</button></li>";*/
         }
         /*htmlkode += "</ol>"*/
         /*TurbinElement.innerHTML = htmlkode;*/
